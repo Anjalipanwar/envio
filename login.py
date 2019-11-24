@@ -6,7 +6,7 @@ Created on Sun Nov 24 23:11:20 2019
 @author: anjalip
 """
 
-# Gmail Login using Selenium in Firefox
+# Login using Selenium in Chrome
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
