@@ -6,6 +6,7 @@ pytest==5.0.1,
 chromedriver
 
 # Files/Folders structure of the testing module:
+
 .\
   |-config             # This folder contains all the configurations and path variables
   |----config.py
