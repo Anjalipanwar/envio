@@ -6,49 +6,75 @@ Created on Sun Nov 24 23:11:20 2019
 @author: anjalip
 """
 
-# Gmail Login using Selenium in Firefox
+#Login using Selenium in Chrome
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
+from config import config
+from config import login_input 
+import logger
 
-#Open chrome
-driver = webdriver.Chrome()
+class UIloginSuite():
 
-#Open website
-driver.get("https://angular.realworld.io")
+    def init_browser(self):    
+    
+        logger.logger.info('Open chrome')
+        self.driver = webdriver.Chrome()
+        
+        logger.logger.info('Open website')
+        self.driver.get(config.URL)
+        
+        time.sleep(2)
+    
+    def login(self):
+    
+        logger.logger.info("Navigate to Login Page by clicking Sign in")
+        
+        signin = self.driver.find_element_by_xpath(login_input.signin)
+        signin.send_keys(Keys.RETURN)
+        
+        logger.logger.info("Enter email")
+        email = self.driver.find_element_by_xpath(login_input.email_input)
+        email.send_keys(config.EMAIL)
+        #email.send_keys(Keys.RETURN)
+        
+        time.sleep(2)
+        
+        logger.logger.info("Enter Password")
+        pwrd = self.driver.find_element_by_xpath('/html/body/app-root/app-auth-page/div/div/div/div/form/fieldset/fieldset[3]/input')
+        pwrd.seself.nd_keys(config.PASSWORD)
+        
+        logger.logger.info("Hit Enter to click Sing in button")
+        pwrd.send_keys(Keys.RETURN)
+        
+        time.sleep(2)
+        
+        logger.logger.info("Navigate to Settings")
+        settings = self.driver.find_element_by_xpath('/html/body/app-root/app-layout-header/nav/div/ul/li[3]/a')
+        settings.click()
+        
+    def logout(self):
+        
 
-time.sleep(2)
+        logger.logger.info("Click logout")
+        logout = self.driver.find_element_by_xpath('/html/body/app-root/app-settings-page/div/div/div/div/button')
+        logout.click()
+        
+        time.sleep(2)
 
-#Navigate to Login Page by clicking Sign in
+    def shut_driver(self):
+        
+        self.driver.close()
+        
+if __name__ == '__main__': 
+    
+    logger.logger.info("Execution Starts here..")
+    uiloginsuite_obj = UIloginSuite()
 
-signin = driver.find_element_by_xpath('/html/body/app-root/app-layout-header/nav/div/ul/li[2]/a')
-signin.send_keys(Keys.RETURN)
-
-#Enter email
-email = driver.find_element_by_xpath('/html/body/app-root/app-auth-page/div/div/div/div/form/fieldset/fieldset[2]/input')
-email.send_keys('official.anjali@gmail.com')
-#email.send_keys(Keys.RETURN)
-
-time.sleep(2)
-
-#Enter Password
-pwrd = driver.find_element_by_xpath('/html/body/app-root/app-auth-page/div/div/div/div/form/fieldset/fieldset[3]/input')
-pwrd.send_keys('testpass@123')
-
-#Hit Enter to click Sing in button
-pwrd.send_keys(Keys.RETURN)
-
-time.sleep(2)
-
-#Navigate to Settings
-settings = driver.find_element_by_xpath('/html/body/app-root/app-layout-header/nav/div/ul/li[3]/a')
-settings.click()
-
-#Click logout
-logout = driver.find_element_by_xpath('/html/body/app-root/app-settings-page/div/div/div/div/button')
-logout.click()
-
-time.sleep(2)
-
-driver.close()
+    
+    uiloginsuite_obj.init_browser()
+    
+    
+    
+    
