@@ -23,6 +23,15 @@ class UIloginSuite():
         logger.logger.info('Open chrome..')
 
         try:
+
+            ####headless browser execution#######
+
+            # options = webdriver.ChromeOptions()
+            # options.add_argument('--headless')
+            # self.driver = webdriver.Chrome(chrome_options = options, executable_path='/usr/local/bin/chromedriver')
+
+            #####################################
+
             self.driver = webdriver.Chrome()
             logger.logger.info('Successfully opened chrome')
         except:

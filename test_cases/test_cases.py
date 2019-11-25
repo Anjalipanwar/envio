@@ -14,7 +14,7 @@ class TestSuite(unittest.TestCase):
         self.login_obj = UIloginSuite()
 
     @pytest.mark.functional
-    def testLogin001(self):
+    def testLogin(self):
         logger.logger.info("Executing Login test cases")
         self.login_obj.init_browser()
 
@@ -26,9 +26,9 @@ class TestSuite(unittest.TestCase):
 if __name__ == '__main__':
     test_suite_obj = TestSuite()
 
-    # Positive Test Cases
+    # Test Cases
     test_obj = unittest.TestSuite()
-    test_obj.addTest(TestSuite('testLogin001'))
+    test_obj.addTest(TestSuite('testLogin'))
 
     runner = unittest.TextTestRunner()
     runner.run(test_obj)
