@@ -11,6 +11,7 @@ Created on Sun Nov 24 23:11:20 2019
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
+
 from config import config
 from config import login_input 
 import logger
@@ -76,5 +77,4 @@ if __name__ == '__main__':
     uiloginsuite_obj.init_browser()
     
     
-    
-    
+
