@@ -45,10 +45,10 @@ class UIloginSuite():
             logger.logger.info("Exception Occurred while opening website")
 
         time.sleep(2)
-        try:
-            self.login()
-        except:
-            logger.logger.info("Exception Occurred while executing login method")
+        # try:
+        #     self.login()
+        # except:
+        #     logger.logger.info("Exception Occurred while executing login method")
 
     def login(self):
 
@@ -89,6 +89,14 @@ class UIloginSuite():
         except:
             logger.logger.info("Error occurred while sign in")
 
+        # try:
+        #     self.settings()
+        # except:
+        #     logger.logger.info("Error occurred while executing settings method")
+
+
+    def settings(self):
+
         try:
             logger.logger.info("Navigate to Settings")
             settings = self.driver.find_element_by_xpath(login_input['settings'])
@@ -96,10 +104,10 @@ class UIloginSuite():
         except:
             logger.logger.info("Failed to Navigate to Settings")
 
-        try:
-            self.logout()
-        except:
-            logger.logger.info("Error occurred while executing logout method")
+        # try:
+        #     self.logout()
+        # except:
+        #     logger.logger.info("Error occurred while executing logout method")
 
     def logout(self):
         logger.logger.info("Click logout")
@@ -111,10 +119,10 @@ class UIloginSuite():
         except:
             logger.logger.info("Error occurred while signing out ")
 
-        try:
-            self.shut_driver()
-        except:
-            logger.logger.info("Error occurred while executing shut_driver method")
+        # try:
+        #     self.shut_driver()
+        # except:
+        #     logger.logger.info("Error occurred while executing shut_driver method")
 
 
     def shut_driver(self):
